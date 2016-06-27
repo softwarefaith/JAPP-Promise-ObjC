@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C95EE8861D191F1200A70173 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EE8851D191F1200A70173 /* main.m */; };
+		C95EE8891D191F1200A70173 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EE8881D191F1200A70173 /* AppDelegate.m */; };
+		C95EE88C1D191F1200A70173 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EE88B1D191F1200A70173 /* ViewController.m */; };
+		C95EE88F1D191F1200A70173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95EE88D1D191F1200A70173 /* Main.storyboard */; };
+		C95EE8911D191F1200A70173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C95EE8901D191F1200A70173 /* Assets.xcassets */; };
+		C95EE8941D191F1200A70173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95EE8921D191F1200A70173 /* LaunchScreen.storyboard */; };
+		C95EE89F1D191F1200A70173 /* JAPP_Promise_ObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EE89E1D191F1200A70173 /* JAPP_Promise_ObjCTests.m */; };
+		C95EE8AB1D19201400A70173 /* JPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = C95EE8AA1D19201400A70173 /* JPromise.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C95EE89B1D191F1200A70173 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C95EE8791D191F1200A70173 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C95EE8801D191F1200A70173;
+			remoteInfo = "JAPP-Promise-ObjC";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C95EE8811D191F1200A70173 /* JAPP-Promise-ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JAPP-Promise-ObjC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C95EE8851D191F1200A70173 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C95EE8871D191F1200A70173 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C95EE8881D191F1200A70173 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C95EE88A1D191F1200A70173 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C95EE88B1D191F1200A70173 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C95EE88E1D191F1200A70173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C95EE8901D191F1200A70173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C95EE8931D191F1200A70173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C95EE8951D191F1200A70173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95EE89A1D191F1200A70173 /* JAPP-Promise-ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JAPP-Promise-ObjCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C95EE89E1D191F1200A70173 /* JAPP_Promise_ObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JAPP_Promise_ObjCTests.m; sourceTree = "<group>"; };
+		C95EE8A01D191F1200A70173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95EE8A91D19201400A70173 /* JPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPromise.h; path = Source/JPromise.h; sourceTree = "<group>"; };
+		C95EE8AA1D19201400A70173 /* JPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPromise.m; path = Source/JPromise.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C95EE87E1D191F1200A70173 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C95EE8971D191F1200A70173 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C95EE8781D191F1200A70173 = {
+			isa = PBXGroup;
+			children = (
+				C95EE8AC1D19201900A70173 /* Class */,
+				C95EE8831D191F1200A70173 /* JAPP-Promise-ObjC */,
+				C95EE89D1D191F1200A70173 /* JAPP-Promise-ObjCTests */,
+				C95EE8821D191F1200A70173 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C95EE8821D191F1200A70173 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C95EE8811D191F1200A70173 /* JAPP-Promise-ObjC.app */,
+				C95EE89A1D191F1200A70173 /* JAPP-Promise-ObjCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C95EE8831D191F1200A70173 /* JAPP-Promise-ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				C95EE8871D191F1200A70173 /* AppDelegate.h */,
+				C95EE8881D191F1200A70173 /* AppDelegate.m */,
+				C95EE88A1D191F1200A70173 /* ViewController.h */,
+				C95EE88B1D191F1200A70173 /* ViewController.m */,
+				C95EE88D1D191F1200A70173 /* Main.storyboard */,
+				C95EE8901D191F1200A70173 /* Assets.xcassets */,
+				C95EE8921D191F1200A70173 /* LaunchScreen.storyboard */,
+				C95EE8951D191F1200A70173 /* Info.plist */,
+				C95EE8841D191F1200A70173 /* Supporting Files */,
+			);
+			path = "JAPP-Promise-ObjC";
+			sourceTree = "<group>";
+		};
+		C95EE8841D191F1200A70173 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C95EE8851D191F1200A70173 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C95EE89D1D191F1200A70173 /* JAPP-Promise-ObjCTests */ = {
+			isa = PBXGroup;
+			children = (
+				C95EE89E1D191F1200A70173 /* JAPP_Promise_ObjCTests.m */,
+				C95EE8A01D191F1200A70173 /* Info.plist */,
+			);
+			path = "JAPP-Promise-ObjCTests";
+			sourceTree = "<group>";
+		};
+		C95EE8AC1D19201900A70173 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C95EE8A91D19201400A70173 /* JPromise.h */,
+				C95EE8AA1D19201400A70173 /* JPromise.m */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C95EE8801D191F1200A70173 /* JAPP-Promise-ObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C95EE8A31D191F1200A70173 /* Build configuration list for PBXNativeTarget "JAPP-Promise-ObjC" */;
+			buildPhases = (
+				C95EE87D1D191F1200A70173 /* Sources */,
+				C95EE87E1D191F1200A70173 /* Frameworks */,
+				C95EE87F1D191F1200A70173 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JAPP-Promise-ObjC";
+			productName = "JAPP-Promise-ObjC";
+			productReference = C95EE8811D191F1200A70173 /* JAPP-Promise-ObjC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C95EE8991D191F1200A70173 /* JAPP-Promise-ObjCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C95EE8A61D191F1200A70173 /* Build configuration list for PBXNativeTarget "JAPP-Promise-ObjCTests" */;
+			buildPhases = (
+				C95EE8961D191F1200A70173 /* Sources */,
+				C95EE8971D191F1200A70173 /* Frameworks */,
+				C95EE8981D191F1200A70173 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C95EE89C1D191F1200A70173 /* PBXTargetDependency */,
+			);
+			name = "JAPP-Promise-ObjCTests";
+			productName = "JAPP-Promise-ObjCTests";
+			productReference = C95EE89A1D191F1200A70173 /* JAPP-Promise-ObjCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C95EE8791D191F1200A70173 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Allan;
+				TargetAttributes = {
+					C95EE8801D191F1200A70173 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					C95EE8991D191F1200A70173 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = C95EE8801D191F1200A70173;
+					};
+				};
+			};
+			buildConfigurationList = C95EE87C1D191F1200A70173 /* Build configuration list for PBXProject "JAPP-Promise-ObjC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C95EE8781D191F1200A70173;
+			productRefGroup = C95EE8821D191F1200A70173 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C95EE8801D191F1200A70173 /* JAPP-Promise-ObjC */,
+				C95EE8991D191F1200A70173 /* JAPP-Promise-ObjCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C95EE87F1D191F1200A70173 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C95EE8941D191F1200A70173 /* LaunchScreen.storyboard in Resources */,
+				C95EE8911D191F1200A70173 /* Assets.xcassets in Resources */,
+				C95EE88F1D191F1200A70173 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C95EE8981D191F1200A70173 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C95EE87D1D191F1200A70173 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C95EE88C1D191F1200A70173 /* ViewController.m in Sources */,
+				C95EE8891D191F1200A70173 /* AppDelegate.m in Sources */,
+				C95EE8AB1D19201400A70173 /* JPromise.m in Sources */,
+				C95EE8861D191F1200A70173 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C95EE8961D191F1200A70173 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C95EE89F1D191F1200A70173 /* JAPP_Promise_ObjCTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C95EE89C1D191F1200A70173 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C95EE8801D191F1200A70173 /* JAPP-Promise-ObjC */;
+			targetProxy = C95EE89B1D191F1200A70173 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C95EE88D1D191F1200A70173 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C95EE88E1D191F1200A70173 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C95EE8921D191F1200A70173 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C95EE8931D191F1200A70173 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C95EE8A11D191F1200A70173 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C95EE8A21D191F1200A70173 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C95EE8A41D191F1200A70173 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "JAPP-Promise-ObjC/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.JAPP-Promise-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C95EE8A51D191F1200A70173 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "JAPP-Promise-ObjC/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.JAPP-Promise-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C95EE8A71D191F1200A70173 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "JAPP-Promise-ObjCTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.JAPP-Promise-ObjCTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JAPP-Promise-ObjC.app/JAPP-Promise-ObjC";
+			};
+			name = Debug;
+		};
+		C95EE8A81D191F1200A70173 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "JAPP-Promise-ObjCTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "App.JAPP-Promise-ObjCTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JAPP-Promise-ObjC.app/JAPP-Promise-ObjC";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C95EE87C1D191F1200A70173 /* Build configuration list for PBXProject "JAPP-Promise-ObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C95EE8A11D191F1200A70173 /* Debug */,
+				C95EE8A21D191F1200A70173 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C95EE8A31D191F1200A70173 /* Build configuration list for PBXNativeTarget "JAPP-Promise-ObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C95EE8A41D191F1200A70173 /* Debug */,
+				C95EE8A51D191F1200A70173 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C95EE8A61D191F1200A70173 /* Build configuration list for PBXNativeTarget "JAPP-Promise-ObjCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C95EE8A71D191F1200A70173 /* Debug */,
+				C95EE8A81D191F1200A70173 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C95EE8791D191F1200A70173 /* Project object */;
+}
