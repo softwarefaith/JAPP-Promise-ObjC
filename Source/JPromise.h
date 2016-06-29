@@ -8,19 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-
+@class JPromise;
 /**
  *  @brief Block 定义
  */
 
-typedef void (^bound_block)    (void);
-typedef id   (^transform_block)(id);
 
-typedef void (^resolved_block)(id);
-typedef void (^rejected_block)(NSError *);
-typedef void (^always_block)(id,NSError*);
-
-typedef void (^finally_block)(id,NSError*);
+typedef JPromise * (^resolved_block)(id object);
+typedef void (^rejected_block)(NSError * error);
+typedef void (^finally_block)();
 
 
 
@@ -57,65 +53,37 @@ typedef NS_ENUM(NSInteger,JPromiseState) {
      */
     
     JPromiseState _state;
-    /**
-     *  @brief 执行队列
-     */
-    dispatch_queue_t _queue;
+    
     /**
      *  @brief 状态锁
      */
     
-    NSObject *_stateLock;
-    
-    NSMutableArray *_callbackBindings;
-    NSMutableArray<resolved_block> *_resolved_blocks;
-    NSMutableArray<rejected_block> *_rejected_blocks;
-    NSMutableArray<always_block>   *_alwaysBlocks;
-    
-    NSUInteger thenCount; //统计then个数
+    NSObject *_synLock;
 }
-
-@property (nonatomic,readonly,strong) id result;
-
-@property (nonatomic,readonly,strong) NSError *reason;
 
 //当前的状态
 @property (nonatomic,readonly,assign) BOOL isResolved;
 @property (nonatomic,readonly,assign) BOOL isRejected;
 
 
-@property (nonatomic,copy) finally_block   finally;
-
-/**
- *  @brief 封装Promise对象
- */
-+ (JPromise *)resolved:(id)result;
-+ (JPromise *)rejected:(NSError *)reason;
-
-/**
- *  @brief 执行的队列
- */
-- (JPromise *)on:(dispatch_queue_t)queue;
-- (JPromise *)onMainQueue;
-
 /**
  *  @brief 链式函数
  */
-- (JPromise *)then:(resolved_block)thenBlock;
+
+- (JPromise *)then:(resolved_block)thenBlock ;
+
 - (JPromise *)then:(resolved_block)thenBlock failed:(rejected_block)rejectedBlock;
-- (JPromise *)then:(resolved_block)thenBlock failed:(rejected_block)rejectedBlock always:(always_block)alwaysBlock;
 
+- (void)finally:(finally_block)finallyBlock;
+
+/**
+ *  @brief 调用
+ */
+- (void)resolve:(id)object;
+- (void)reject:(NSError *)reson;
 
 
 @end
 
 
-@interface JDeferred : JPromise
 
-+ (JDeferred *)deferred;
-
-- (JPromise *)promise;
-- (JPromise *)resolve:(id)result;
-- (JPromise *)reject:(NSError *)reason;
-
-@end

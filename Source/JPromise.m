@@ -15,18 +15,22 @@
 
 @property (nonatomic,readwrite,strong) NSError *reason;
 
-@property (nonatomic,strong) NSMutableArray<resolved_block> *resolved_blocks;
+@property (nonatomic,copy) rejected_block   reject;
 
-@property (nonatomic,strong) NSMutableArray<rejected_block> *rejected_blocks;
+@property (nonatomic,copy) resolved_block   resolve;
 
-@property (nonatomic,strong) NSMutableArray<always_block>  *alwaysBlocks;
+@property (nonatomic,copy) finally_block   finally;
+
+@property (nonatomic, strong) JPromise *returnedPromise;
+
+
+@property (nonatomic, strong) JPromise *strongSelf;
 
 @end
 
-@implementation JPromise{
+@implementation JPromise
     
-   
-}
+
 
 @synthesize result = _result;
 @synthesize reason = _reason;
@@ -34,21 +38,20 @@
 @dynamic isRejected,isResolved;
 
 #pragma mark --Init
-- (id)initWithQueue:(dispatch_queue_t)queue
-{
+
+
+-(instancetype)init{
+    
     if (self = [super init]) {
-        
         _state = JPromiseStatePending;
-        
-        if (queue) {
-            _queue = queue;
-        }
-        _stateLock = [[NSObject alloc] init];
+        _synLock = [[NSObject alloc] init];
         _result = nil;
     }
-    
     return self;
+    
 }
+
+
 
 #pragma mark --rewrite
 
@@ -63,217 +66,76 @@
 }
 
 
--(NSMutableArray<resolved_block> *)resolved_blocks{
-    
-    if (_resolved_blocks == nil) {
-        
-        _resolved_blocks = [[NSMutableArray alloc] init];
-    }
-    
-    return _resolved_blocks;
-}
-
--(NSMutableArray<rejected_block> *)rejected_blocks{
-    
-    if (_resolved_blocks == nil) {
-        _rejected_blocks = [[NSMutableArray alloc] init];
-    }
-    return _rejected_blocks;
-}
-
--(NSMutableArray<always_block> *)finallyBlocks{
-    
-    if (_alwaysBlocks == nil) {
-        _alwaysBlocks = [[NSMutableArray alloc] init];
-    }
-    return _alwaysBlocks;
-    
-}
 
 #pragma mark --Public
 
 -(JPromise *)then:(resolved_block)thenBlock{
-  return [self then:thenBlock failed:nil always:nil];
+    
+    return [self then:thenBlock failed:nil];
 }
+
 
 -(JPromise *)then:(resolved_block)thenBlock failed:(rejected_block)rejectedBlock{
-   return [self then:thenBlock failed:rejectedBlock always:nil];
+    
+    
+    self.strongSelf = self;
+    self.resolve = [thenBlock copy];
+    self.reject = [rejectedBlock copy];
+    
+    JPromise *temp = [[JPromise alloc] init];
+    self.returnedPromise = temp;
+    return temp;
 }
 
 
-
--(JPromise *)then:(resolved_block)thenBlock failed:(rejected_block)rejectedBlock always:(always_block)alwaysBlock{
+-(void)finally:(finally_block)finallyBlock{
     
-    if(_state == JPromiseStatePending){
-        
-        if (thenBlock == nil) {
-            return self;
-        }
-        
-        if (thenBlock) {
-            
-            thenCount++;
-            
-            [self.resolved_blocks addObject:thenBlock];
-            
-            __block JPromise *this = self;
-            [this bindOrCallBlock:^{
-                
-                if ([this isResolved]) {
-                    thenBlock(this.result);
-                }
-                
-            }];
-        }
-        
-        if (rejectedBlock){
-            [self.rejected_blocks addObject:rejectedBlock];
-            
-            __block JPromise *this = self;
-            [this bindOrCallBlock:^{
-                
-                if ([this isRejected]) {
-                    thenBlock(this.reason);
-                }
-                
-            }];
-
-            
-        }
-        
-        if (alwaysBlock){
-            [self.alwaysBlocks addObject:alwaysBlock];
-            
-            __block JPromise *this = self;
-            [this bindOrCallBlock:^{
-                
-                alwaysBlock(this.result,this.reason);
-                
-            }];
-
-        }
-        
-    }else{
-        
-        if (_state == JPromiseStateResolved) {
-            
-            if (thenBlock) {
-                thenBlock(self.result);
-            }
-        }else if(_state == JPromiseStateRejected){
-            
-            if (rejectedBlock) {
-                rejectedBlock(self.reason);
-            }
-        }
-        
-        if (alwaysBlock) {
-             alwaysBlock(self.result,self.reason);
-        }
-    }
-    return self;
+    self.finally = [finallyBlock copy];
 }
 
 
+#pragma mark --Public
+-(void)resolve:(id)object{
+     @synchronized (_synLock) {
+    self.result = object;
+    if (self.resolve) {
+        [self populateReturnPromiseWithPromise:self.resolve(object)];
+    }
+     }
+}
 
-#pragma mark --private
-- (void)executeBlock:(bound_block)block{
-    if (_queue) {
-        dispatch_async(_queue, block);
-    } else {
-        block();
+- (void)reject:(NSError *)reson;
+ {
+      @synchronized (_synLock) {
+            self.reason = reson;
+            if (self.reject)
+                self.reject(reson);
+            [self.returnedPromise reject:reson];
+            [self completeFinally];
     }
 }
 
-- (BOOL)bindOrCallBlock:(bound_block)block
-{
-    BOOL blockWasBound = NO;
-    
-    @synchronized (_stateLock) {
-        if (_state == JPromiseStatePending) {
-            [_callbackBindings addObject:[block copy]];
-            
-            blockWasBound = YES;
-        }
+- (void)completeFinally {
+    if (self.finally) {
+        self.finally();
+    } else if (self.returnedPromise.finally) {
+        self.returnedPromise.finally();
     }
-    
-    if (!blockWasBound) {
-        [self executeBlock:block];
-    }
-    
-    return blockWasBound;
+    self.strongSelf = nil;
+}
+
+- (void)populateReturnPromiseWithPromise:(JPromise *)promise {
+    promise.resolve = self.returnedPromise.resolve;
+    promise.reject = self.returnedPromise.reject;
+    promise.strongSelf = promise;
 }
 
 @end
 
 
-#pragma mark -- JDefered Implementation
-
-//@interface JDeferred ()
-//
-//@property (nonatomic,readwrite,strong) id result;
-//
-//
-//@end
 
 
 
 
 
-@implementation JDeferred
 
-+ (JDeferred *)deferred{
-    
-    return [[JDeferred alloc] init];
-}
-
--(JPromise *)promise{
-    return self;
-}
-
--(JPromise *)resolve:(id)result{
-    
-    self.result = result;
-    
-    [self transitionToState:JPromiseStateResolved];
-    
-    
-    return [self promise];
-}
-
-- (JPromise *)reject:(NSError *)reason{
-    
-    self.reason = reason;
-    
-    [self transitionToState:JPromiseStateRejected];
-    
-    return [self promise];
-}
-
-
-
-- (void)transitionToState:(JPromiseState)state
-{
-    NSArray *blocksToExecute = nil;
-    BOOL shouldComplete = NO;
-    
-    @synchronized (_stateLock) {
-        if (_state == JPromiseStatePending) {
-            _state = state;
-            
-            shouldComplete = YES;
-            
-            blocksToExecute = _callbackBindings;
-            
-            _callbackBindings = nil;
-        }
-    }
-    if (shouldComplete) {
-        for (bound_block block in blocksToExecute) {
-            [self executeBlock:block];
-        }
-    }
-}
-
-
-@end

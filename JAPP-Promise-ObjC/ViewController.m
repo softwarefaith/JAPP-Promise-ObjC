@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "JPromise.h"
+
 @interface ViewController ()
 
 @end
@@ -17,7 +19,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    JPromise *promise =  [[JPromise alloc]init];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        sleep(4);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [promise resolve:@(1)];
+        });
+    });
+    
+   [ promise then:^JPromise *(id object) {
+        
+        NSLog(@"--%@",object);
+        return nil;
+    } failed:^(NSError * error) {
+        
+    }];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

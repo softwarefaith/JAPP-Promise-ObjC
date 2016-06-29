@@ -414,6 +414,7 @@
 				C95EE8A51D191F1200A70173 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C95EE8A61D191F1200A70173 /* Build configuration list for PBXNativeTarget "JAPP-Promise-ObjCTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +423,7 @@
 				C95EE8A81D191F1200A70173 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
